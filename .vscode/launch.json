@@ -1,0 +1,53 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Attach to SAM",
+            "type": "node",
+            "request": "attach",
+            "address": "localhost",
+            "port": 5858,
+            // From the sam init example, it would be "${workspaceFolder}/hello-world"
+            "localRoot": "${workspaceFolder}/hello-world",
+            "remoteRoot": "/var/task",
+            "protocol": "inspector",
+            "stopOnEntry": false,
+            "skipFiles": [
+                "${workspaceFolder}/node_modules/**/*.js",
+                "<node_internals>/**/*.js"
+            ]
+        },
+        {
+            "name": "Launch to SAM",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "sam",
+            "runtimeArgs": [
+                "local",
+                "invoke",
+                "-e",
+                "${workspaceFolder}/events/event.json",
+                "-d",
+                "5858",
+                "-t",
+                "${workspaceFolder}/template.yaml",
+                "HelloWorldFunction",
+                "--region",
+                "us-west-2"
+            ],
+            "address": "localhost",
+            "port": 5858,
+            "localRoot": "${workspaceFolder}/hello-world",
+            "remoteRoot": "/var/task",
+            "protocol": "inspector",
+            "stopOnEntry": false,
+            "skipFiles": [
+                "${workspaceFolder}/node_modules/**/*.js",
+                "<node_internals>/**/*.js"
+            ]
+        }
+    ]
+}
