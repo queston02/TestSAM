@@ -22,7 +22,7 @@
         },
         {
             "name": "Launch to SAM",
-            "type": "node",
+            "type": "pwa-node",
             "request": "launch",
             "runtimeExecutable": "sam",
             "runtimeArgs": [
@@ -39,7 +39,7 @@
                 "us-west-2"
             ],
             "address": "localhost",
-            "port": 5858,
+            "attachSimplePort": "5858",
             "localRoot": "${workspaceFolder}/hello-world",
             "remoteRoot": "/var/task",
             "protocol": "inspector",
@@ -47,7 +47,8 @@
             "skipFiles": [
                 "${workspaceFolder}/node_modules/**/*.js",
                 "<node_internals>/**/*.js"
-            ]
+            ],
+            "trace": "all"
         }
     ]
 }
